@@ -6,26 +6,27 @@ UP = 90
 DOWN = 180
 
 
-class Paddle:
-    def __init__(self):
-        self.paddle = Turtle()
-        self.paddle.penup()
-        self.paddle.color(COLOR)
-        self.paddle.shape('square')
-        self.paddle.goto(x=0, y=0)
-        self.paddle.shapesize(stretch_wid=5,stretch_len=1)
-        self.paddle.goto(x=350,y=0)
+class Paddle(Turtle):
+    def __init__(self,coordinates):
+        super().__init__()
+        self.x_coodinate = coordinates[0]
+        self.y_cordinate = coordinates[1]
+        self.penup()
+        self.color(COLOR)
+        self.shape('square')
+        self.shapesize(stretch_wid=5,stretch_len=1)
+        self.goto(x=self.x_coodinate,y=self.y_cordinate)
 
     def up(self):
-        new_y_pos = self.paddle.ycor() +20
+        new_y_pos = self.ycor() +20
         if new_y_pos <=260:
-            self.paddle.goto(y=new_y_pos,x=350)
+            self.goto(y=new_y_pos,x=self.x_coodinate)
 
 
 
     def down(self):
-        new_y_pos = self.paddle.ycor() -20
+        new_y_pos = self.ycor() -20
         if new_y_pos >= -240:
-            self.paddle.goto(y=new_y_pos, x=350)
+            self.goto(y=new_y_pos, x=self.x_coodinate)
 
 

@@ -9,10 +9,13 @@ screen.setup(width=800,height=600)
 screen.bgcolor("black")
 screen.title('Pong')
 
-paddle = Paddle()
+r_paddle = Paddle((350,0))
+l_paddle = Paddle((-350,0))
 screen.listen()
-screen.onkeypress(key='Up',fun=paddle.up)
-screen.onkeypress(key='Down',fun=paddle.down)
+screen.onkeypress(key='Up',fun=r_paddle.up)
+screen.onkeypress(key='Down',fun=r_paddle.down)
+screen.onkeypress(key='w',fun=l_paddle.up)
+screen.onkeypress(key='s',fun=l_paddle.down)
 
 
 while game_is_on:
